@@ -1,12 +1,13 @@
 {
   "name": "@spatie/wires",
-  "version": "0.3.1",
+  "version": "0.3.5",
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "next-plugin-transpile-modules": "^2.0.0",
-    "nprogress": "^0.2.0"
+    "nprogress": "^0.2.0",
+    "webpack": "*"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.7",
@@ -25,5 +26,10 @@
     "prepublish": "$npm_execpath run styles",
     "styles": "postcss src/styles/index.css -o styles.css",
     "format": "prettier \"**/*.{js,json,css}\" --write --ignore-path .gitignore"
-  }
+  },
+  "files": [
+    "src",
+    "next.js",
+    "styles.css"
+  ]
 }
