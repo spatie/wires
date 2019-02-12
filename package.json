@@ -1,15 +1,29 @@
 {
   "name": "@spatie/wires",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next-plugin-transpile-modules": "^2.0.0",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {
-    "prettier": "^1.16.3"
+    "autoprefixer": "^9.4.7",
+    "cssnano": "^4.1.8",
+    "postcss-cli": "^6.1.1",
+    "postcss-easy-import": "^3.0.0",
+    "prettier": "^1.16.3",
+    "tailwindcss": "^0.7.4"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": "*",
+    "react-dom": "*"
   },
   "scripts": {
-    "format": "prettier \"**/*.{js,json,css}\" --write"
+    "prepublish": "$npm_execpath run styles",
+    "styles": "postcss src/styles/index.css -o styles.css",
+    "format": "prettier \"**/*.{js,json,css}\" --write --ignore-path .gitignore"
   }
 }
