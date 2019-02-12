@@ -1,19 +1,11 @@
-import classNames from "classnames";
 import useWires from "../../hooks/useWires";
 
 export default function Note({ text, children }) {
   const { notesHighlighted } = useWires();
 
-  const highlightClassName = classNames("highlight", {
-    "is-highlighted": notesHighlighted,
-    "cursor-pointer": clickable
-  });
-
   return (
     <>
-      <div className={highlightClassName} ref={rootEl}>
-        {children}
-      </div>
+      <div className={`highlight ${notesHighlighted && "is-highlighted"}`}>{children}</div>
       <div className="tooltip absolute bg-white font-mono text-xs border-3 border-blue-light p-4 z-50">{text}</div>
       <style jsx>{`
         .tooltip {

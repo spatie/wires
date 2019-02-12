@@ -204,15 +204,7 @@ module.exports = {
       "Helvetica Neue",
       "sans-serif"
     ],
-    mono: [
-      "Roboto Mono",
-      "Menlo",
-      "Monaco",
-      "Consolas",
-      "Liberation Mono",
-      "Courier New",
-      "monospace"
-    ]
+    mono: ["Roboto Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
   },
 
   /*
