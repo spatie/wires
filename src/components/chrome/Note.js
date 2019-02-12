@@ -1,23 +1,8 @@
 import classNames from "classnames";
 import useWires from "../../hooks/useWires";
-import { useEffect, useRef, useState } from "react";
 
 export default function Note({ text, children }) {
   const { notesHighlighted } = useWires();
-
-  const rootEl = useRef(null);
-  const [clickable, setClickable] = useState(false);
-
-  useEffect(() => {
-    setClickable(rootEl.current.firstChild.tagName === "A");
-  }, [rootEl]);
-
-  function clickFirstChild(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    rootEl.current.firstChild.click();
-  }
 
   const highlightClassName = classNames("highlight", {
     "is-highlighted": notesHighlighted,
@@ -26,7 +11,7 @@ export default function Note({ text, children }) {
 
   return (
     <>
-      <div className={highlightClassName} ref={rootEl} onClick={clickFirstChild}>
+      <div className={highlightClassName} ref={rootEl}>
         {children}
       </div>
       <div className="tooltip absolute bg-white font-mono text-xs border-3 border-blue-light p-4 z-50">{text}</div>
@@ -50,6 +35,7 @@ export default function Note({ text, children }) {
           left: -3px;
           background: rgba(52, 144, 220, 0.2);
           border: 3px solid #6cb2eb;
+          pointer-events: none;
         }
 
         .tooltip {
