@@ -1,0 +1,23 @@
+{
+  "name": "@spatie/wires",
+  "version": "0.1.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "next-plugin-transpile-modules": "^1.1.0",
+    "nprogress": "^0.2.0",
+    "tailwindcss": "^0.6.6"
+  },
+  "peerDependencies": {
+    "next": "*",
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.3"
+  },
+  "scripts": {
+    "format": "prettier \"**/*.{js,json,css}\" --write"
+  }
+}
