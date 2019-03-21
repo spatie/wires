@@ -49,6 +49,10 @@
     grid-template-columns: repeat(6, 1fr);
   }
 
+  .cols-auto {
+    grid-auto-flow: column;
+  }
+
   .cols-auto-1fr {
     grid-template-columns: auto 1fr;
   }
@@ -154,23 +158,23 @@
   }
 
   .start-2 {
-    grid-column-start: 1;
+    grid-column-start: 2;
   }
 
   .start-3 {
-    grid-column-start: 1;
+    grid-column-start: 3;
   }
 
   .start-4 {
-    grid-column-start: 1;
+    grid-column-start: 4;
   }
 
   .start-5 {
-    grid-column-start: 1;
+    grid-column-start: 5;
   }
 
   .start-6 {
-    grid-column-start: 1;
+    grid-column-start: 6;
   }
 
   .align-self-start {
