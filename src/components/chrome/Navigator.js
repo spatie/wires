@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import useWires from "../../hooks/useWires";
-import NavigatorIndex from "./NavigatorIndex";
 
-export default function Navigator({ pages }) {
-  const { path } = useWires();
+export default function Navigator() {
+  const { path, pages } = useWires();
   const [showIndex, setShowIndex] = useState(false);
 
   function toggleShowIndex() {
@@ -40,19 +39,43 @@ export default function Navigator({ pages }) {
       onClick={e => e.stopPropagation()}
     >
       <Link prefetch href={hasPreviousPage ? pages[currentPageIndex - 1] : pages[currentPageIndex]}>
-        <a className={`block bg-grey-darkest h-6 px-2 rounded-sm ${hasPreviousPage ? null : "opacity-25"}`}>
+        <a className={`block bg-black h-6 px-2 rounded-sm ${hasPreviousPage ? null : "opacity-25"}`}>
           <i className="fas fa-chevron-left" style={{ transform: "translateY(0.1rem)" }} />
         </a>
       </Link>
-      <button className="block w-24 text-center" onClick={toggleShowIndex}>
+      <button
+        className={`block w-20 mx-2 rounded text-center ${showIndex ? "bg-blue-500" : ""}`}
+        onClick={toggleShowIndex}
+      >
         {currentPageIndex + 1} / {pages.length}
       </button>
       <Link prefetch href={hasNextPage ? pages[currentPageIndex + 1] : pages[currentPageIndex]}>
-        <a className={`block bg-grey-darkest h-6 px-2 rounded-sm ${hasNextPage ? null : "opacity-25"}`}>
+        <a className={`block bg-black h-6 px-2 rounded-sm ${hasNextPage ? null : "opacity-25"}`}>
           <i className="fas fa-chevron-right" style={{ transform: "translateY(0.1rem)" }} />
         </a>
       </Link>
-      {showIndex && <NavigatorIndex pages={pages} currentPageIndex={currentPageIndex} onClose={toggleShowIndex} />}
+      {showIndex && <NavigatorPanel pages={pages} currentPageIndex={currentPageIndex} />}
+    </div>
+  );
+}
+
+function NavigatorPanel({ pages, currentPageIndex }) {
+  return (
+    <div className="absolute right-0 mb-2 w-64 bg-black rounded p-4 text-xs" style={{ bottom: "2.5rem" }}>
+      <ul>
+        {pages.map((page, i) => (
+          <li key={page}>
+            <Link href={page}>
+              <a className="block py-1">
+                {i === currentPageIndex && (
+                  <i className="fas fa-circle text-blue-500 w-3 -ml-3" style={{ transform: "scale(0.5)" }} />
+                )}
+                {page.split("?")[0]}
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
