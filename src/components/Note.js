@@ -13,13 +13,9 @@ export default function Note({ text, inline = false, children }) {
   const Wrapper = inline ? "span" : "div";
 
   return (
-    <Wrapper className={showNotes ? "noted" : ""} data-note={text}>
+    <Wrapper className={"contents relative " + (showNotes ? "noted" : "")} data-note={text}>
       {children}
       <style jsx>{`
-        .noted {
-          position: relative;
-        }
-
         .noted:after {
           align-items: center;
           background: #f26668;
@@ -37,6 +33,7 @@ export default function Note({ text, inline = false, children }) {
           right: -1rem;
           top: 0;
           width: 1.5rem;
+          z-index: 100;
         }
       `}</style>
     </Wrapper>

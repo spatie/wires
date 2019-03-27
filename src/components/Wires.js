@@ -33,8 +33,8 @@ export default function Wires({ pages = [], children, path }) {
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
       </Head>
-      <div className="flex">
-        <div className="flex-1">{children}</div>
+      <div className="flex h-screen">
+        <div className="flex-1 overflow-auto">{children}</div>
         {showNotes ? <NotesPane notes={notes} /> : null}
       </div>
       <Toolbar />
