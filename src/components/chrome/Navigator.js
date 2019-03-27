@@ -35,7 +35,7 @@ export default function Navigator() {
 
   return (
     <div
-      className="h-10 p-2 rounded bg-black text-white flex items-center justify-center"
+      className="h-10 p-2 rounded bg-black text-white font-mono flex items-center justify-center"
       onClick={e => e.stopPropagation()}
     >
       <Link prefetch href={hasPreviousPage ? pages[currentPageIndex - 1] : pages[currentPageIndex]}>

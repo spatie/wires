@@ -3,7 +3,7 @@ import Notes from "./Notes";
 
 export default function Toolbar() {
   return (
-    <div className="toolbar fixed flex bottom-0 right-0 m-2 font-mono">
+    <div className="toolbar fixed flex bottom-0 right-0 m-2">
       <Notes />
       <Navigator />
       <style jsx>{`
