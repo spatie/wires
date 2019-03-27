@@ -2,6 +2,8 @@ import Wires from "./components/Wires";
 
 export default Wires;
 
+export { default as useWires } from "./hooks/useWires";
+
 export { default as Title } from "./components/Title";
 
 export { default as Note } from "./components/Note";
