@@ -7,7 +7,7 @@ import NotesPane from "./chrome/NotesPane";
 import WiresContext from "../contexts/WiresContext";
 
 export default function Wires({ pages = [], children, path }) {
-  const [showNotes, setShowNotes] = useState(true);
+  const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState([]);
 
   function toggleShowNotes() {
