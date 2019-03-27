@@ -70,63 +70,63 @@
   }
 
   .gap-1 {
-    grid-gap: config("padding.1");
+    grid-gap: theme("padding.1");
   }
 
   .gapx-1 {
-    grid-column-gap: config("padding.1");
+    grid-column-gap: theme("padding.1");
   }
 
   .gapy-1 {
-    grid-row-gap: config("padding.1");
+    grid-row-gap: theme("padding.1");
   }
 
   .gap-2 {
-    grid-gap: config("padding.2");
+    grid-gap: theme("padding.2");
   }
 
   .gapx-2 {
-    grid-column-gap: config("padding.2");
+    grid-column-gap: theme("padding.2");
   }
 
   .gapy-2 {
-    grid-row-gap: config("padding.2");
+    grid-row-gap: theme("padding.2");
   }
 
   .gap-4 {
-    grid-gap: config("padding.4");
+    grid-gap: theme("padding.4");
   }
 
   .gapx-4 {
-    grid-column-gap: config("padding.4");
+    grid-column-gap: theme("padding.4");
   }
 
   .gapy-4 {
-    grid-row-gap: config("padding.4");
+    grid-row-gap: theme("padding.4");
   }
 
   .gap-8 {
-    grid-gap: config("padding.8");
+    grid-gap: theme("padding.8");
   }
 
   .gapx-8 {
-    grid-column-gap: config("padding.8");
+    grid-column-gap: theme("padding.8");
   }
 
   .gapy-8 {
-    grid-row-gap: config("padding.8");
+    grid-row-gap: theme("padding.8");
   }
 
   .gap-16 {
-    grid-gap: config("padding.16");
+    grid-gap: theme("padding.16");
   }
 
   .gapx-16 {
-    grid-column-gap: config("padding.16");
+    grid-column-gap: theme("padding.16");
   }
 
   .gapy-16 {
-    grid-row-gap: config("padding.16");
+    grid-row-gap: theme("padding.16");
   }
 
   .span-2 {
