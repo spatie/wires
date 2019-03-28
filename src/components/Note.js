@@ -11,14 +11,14 @@ export default function Note({ text, inline = false, children }) {
   }, []);
 
   return (
-    <span className={"inline-block noted " + (showNotes ? " is-shown" : "")} data-note={text}>
+    <span className={"inline-block note " + (showNotes ? " is-visible" : "")} data-note={text}>
       {children}
       <style jsx>{`
-        :global(.grid) > .noted {
+        :global(.grid) > .note {
           display: contents;
         }
 
-        .noted.is-shown:after {
+        .note.is-visible:after {
           align-items: center;
           background: #f26668;
           border-radius: 1.5rem;
