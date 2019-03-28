@@ -1,8 +1,8 @@
 export default function NotesPane({ notes }) {
   return (
-    <div className="h-screen bg-gray-900 overflow-auto p-6 text-gray-300" style={{ width: "24rem" }}>
+    <div className="overflow-auto bg-gray-900 p-6 text-gray-300" style={{ width: "24rem" }}>
       {notes.length === 0 ? (
-        <p>There aren't any notes on this page.</p>
+        <p>There aren't any notes visible on this page.</p>
       ) : (
         <ul>
           {notes.map((note, i) => (

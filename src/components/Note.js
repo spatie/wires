@@ -10,17 +10,15 @@ export default function Note({ text, inline = false, children }) {
     return reconcileNotes;
   }, []);
 
-  const Wrapper = inline ? "span" : "div";
-
   return (
-    <Wrapper className={showNotes ? "noted" : ""} data-note={text}>
+    <span className={"inline-block note " + (showNotes ? " is-visible" : "")} data-note={text}>
       {children}
       <style jsx>{`
-        .noted {
-          position: relative;
+        :global(.grid) > .note {
+          display: contents;
         }
 
-        .noted:after {
+        .note.is-visible:after {
           align-items: center;
           background: #f26668;
           border-radius: 1.5rem;
@@ -37,8 +35,9 @@ export default function Note({ text, inline = false, children }) {
           right: -1rem;
           top: 0;
           width: 1.5rem;
+          z-index: 100;
         }
       `}</style>
-    </Wrapper>
+    </span>
   );
 }
