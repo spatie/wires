@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import useWires from "../hooks/useWires";
 
-export default function Note({ text, inline = false, children }) {
+export default function Note({ text, children, show = true }) {
   const { showNotes, reconcileNotes } = useWires();
 
   useEffect(() => {
@@ -9,6 +9,10 @@ export default function Note({ text, inline = false, children }) {
 
     return reconcileNotes;
   }, []);
+
+  if (!show) {
+    return children;
+  }
 
   return (
     <span className={"inline-block note " + (showNotes ? " is-visible" : "")} data-note={text}>
