@@ -6,7 +6,7 @@ import Toolbar from "./chrome/Toolbar";
 import NotesPane from "./chrome/NotesPane";
 import WiresContext from "../contexts/WiresContext";
 
-export default function Wires({ pages = [], children, path }) {
+export default function Wires({ pages = [], children, path, notes: withNotes = true }) {
   const [showNotes, setShowNotes] = useState(false);
   const [notes, setNotes] = useState([]);
 
@@ -51,7 +51,17 @@ export default function Wires({ pages = [], children, path }) {
   }
 
   return (
-    <WiresContext.Provider value={{ path, pages, notes, showNotes, toggleShowNotes, reconcileNotes }}>
+    <WiresContext.Provider
+      value={{
+        path,
+        pages,
+        withNotes,
+        notes,
+        showNotes,
+        toggleShowNotes,
+        reconcileNotes
+      }}
+    >
       <Head>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
@@ -61,7 +71,7 @@ export default function Wires({ pages = [], children, path }) {
         <div className="flex-1 overflow-auto" data-wires>
           {children}
         </div>
-        {showNotes ? <NotesPane notes={notes} /> : null}
+        {withNotes && showNotes ? <NotesPane /> : null}
       </div>
       <Toolbar />
     </WiresContext.Provider>
