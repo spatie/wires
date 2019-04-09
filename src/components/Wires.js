@@ -16,7 +16,7 @@ export default function Wires({ pages = [], children, path, notes: withNotes = t
 
     useEffect(() => {
         document.querySelector('[data-wires]').addEventListener('click', e => {
-            const clickableSelectors = ['.cursor-pointer', 'a:not([href="#"])', 'button']
+            const clickableSelectors = ['.cursor-pointer', '.clickable', 'a:not([href="#"])', 'button']
                 .map(selector => `[data-wires] ${selector}`)
                 .join(', ');
 
