@@ -21,8 +21,6 @@ export default function Wires({ pages = [], children, path, notes: withNotes = t
             .map(selector => `[data-wires] ${selector}`)
             .join(', ');
 
-        const clickableElements = Array.from(document.querySelectorAll(clickableSelectors));
-
         document.querySelector('[data-wires]').addEventListener('mousedown', e => {
             if (e.which && e.which === 3) {
                 return;
@@ -31,6 +29,8 @@ export default function Wires({ pages = [], children, path, notes: withNotes = t
             const isClickable = !!e.target.closest(clickableSelectors);
 
             if (!isClickable) {
+                const clickableElements = Array.from(document.querySelectorAll(clickableSelectors));
+
                 clickableTimeout = window.setTimeout(() => {
                     if (window.getSelection().toString() != '') {
                         return;
@@ -45,6 +45,8 @@ export default function Wires({ pages = [], children, path, notes: withNotes = t
 
         document.querySelector('[data-wires]').addEventListener('mouseup', e => {
             clearTimeout(clickableTimeout);
+
+            const clickableElements = Array.from(document.querySelectorAll(clickableSelectors));
 
             clickableElements.forEach(el => {
                 el.style.outline = null;
