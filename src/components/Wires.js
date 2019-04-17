@@ -15,26 +15,40 @@ export default function Wires({ pages = [], children, path, notes: withNotes = t
     }
 
     useEffect(() => {
-        document.querySelector('[data-wires]').addEventListener('click', e => {
-            const clickableSelectors = ['.cursor-pointer', '.clickable', 'a:not([href="#"])', 'button']
-                .map(selector => `[data-wires] ${selector}`)
-                .join(', ');
+        let clickableTimeout = null;
+
+        const clickableSelectors = ['.cursor-pointer', '.clickable', 'a:not([href="#"])', 'button']
+            .map(selector => `[data-wires] ${selector}`)
+            .join(', ');
+
+        const clickableElements = Array.from(document.querySelectorAll(clickableSelectors));
+
+        document.querySelector('[data-wires]').addEventListener('mousedown', e => {
+            if (e.which && e.which === 3) {
+                return;
+            }
 
             const isClickable = !!e.target.closest(clickableSelectors);
 
             if (!isClickable) {
-                const clickableElements = Array.from(document.querySelectorAll(clickableSelectors));
+                clickableTimeout = window.setTimeout(() => {
+                    if (window.getSelection().toString() != '') {
+                        return;
+                    }
 
-                clickableElements.forEach(el => {
-                    el.style.outline = '4px solid #63b3ed';
-                });
-
-                window.setTimeout(() => {
                     clickableElements.forEach(el => {
-                        el.style.outline = null;
+                        el.style.outline = '4px solid #63b3ed';
                     });
-                }, 150);
+                }, 500);
             }
+        });
+
+        document.querySelector('[data-wires]').addEventListener('mouseup', e => {
+            clearTimeout(clickableTimeout);
+
+            clickableElements.forEach(el => {
+                el.style.outline = null;
+            });
         });
     }, []);
 
