@@ -1,14 +1,14 @@
 {
   "name": "@spatie/wires",
-  "version": "0.5.0-beta.1",
+  "version": "0.5.0-beta.2",
   "main": "src/index.js",
   "license": "MIT",
   "dependencies": {
-    "@tailwindcss/custom-forms": "^0.2.1",
     "next-transpile-modules": "^3.0.0",
     "nprogress": "^0.2.0"
   },
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
     "autoprefixer": "^9.7.4",
     "cssnano": "^4.1.10",
     "husky": "^4.2.1",
@@ -29,7 +29,7 @@
   },
   "files": [
     "src",
-    "next.js",
+    "next.config.js",
     "styles.css"
   ],
   "lint-staged": {
