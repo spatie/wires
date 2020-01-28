@@ -65,7 +65,7 @@ export default function Wires({ pages = [], children, path, notes: withNotes = t
             <Head>
                 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
                 <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" />
             </Head>
             <div className="flex h-screen">
                 <div className="flex-1 overflow-auto" data-wires>
